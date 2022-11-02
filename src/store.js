@@ -1,12 +1,9 @@
-import { createStore } from "redux";
+import { createStore, combineReducers } from "redux";
+import { reducer as reduxFormReducer } from 'redux-form';
 
-const initialState = {
-  count: 1,
-};
-
-const reducer = (state = initialState) => {
-  return state;
-};
+const reducer = combineReducers({
+  form: reduxFormReducer,
+});
 
 const store = createStore(reducer);
 
