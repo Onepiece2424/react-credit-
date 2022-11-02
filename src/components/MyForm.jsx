@@ -1,13 +1,13 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Form,FormGroup,Col,ControlLabel,Button,ButtonToolbar } from 'react-bootstrap';
+import { Form,FormGroup,Col,FormLabel,Button,ButtonToolbar } from 'react-bootstrap';
 
 const MyForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <Form horizontal onSubmit={handleSubmit}>
       <FormGroup controlId={'name'}>
-        <Col componentClass={ControlLabel} sm={2}>お名前</Col>
+        <Col componentClass={FormLabel} sm={2}>お名前</Col>
         <Col sm={5}>
           <Field
             id={'name'}
