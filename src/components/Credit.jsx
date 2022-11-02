@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+// クレカ
+import Cards from "react-credit-cards";
+import "react-credit-cards/es/styles-compiled.css";
+
 const Credit = (() => {
 
   const [number, setNumber] = useState("");
@@ -11,6 +15,13 @@ const Credit = (() => {
   return (
     <>
       <p>クレカ登録</p>
+      <Cards
+        number={number}
+        name={name}
+        expiry={expiry}
+        cvc={cvc}
+        focused={focus}
+      />
       <form>
         <div>
           <input
