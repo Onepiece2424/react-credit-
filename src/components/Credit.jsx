@@ -6,6 +6,7 @@ const Credit = (() => {
   const [name, setName] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvc, setCvc] = useState("");
+  const [focus, setFocus] = useState("");
 
   return (
     <>
@@ -18,6 +19,7 @@ const Credit = (() => {
             placeholder="Card Number"
             value={number}
             onChange={(e) => setNumber(e.target.value)}
+            onFocus={(e) => setFocus(e.target.name)}
           />
         </div>
         <div>
@@ -27,6 +29,7 @@ const Credit = (() => {
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            onFocus={(e) => setFocus(e.target.name)}
           />
         </div>
         <div>
@@ -36,6 +39,7 @@ const Credit = (() => {
             placeholder="MM/YY"
             value={expiry}
             onChange={(e) => setExpiry(e.target.value)}
+            onFocus={(e) => setFocus(e.target.name)}
           />
         </div>
         <div>
@@ -45,6 +49,7 @@ const Credit = (() => {
             placeholder="CVC"
             value={cvc}
             onChange={(e) => setCvc(e.target.value)}
+            onFocus={(e) => setFocus(e.target.name)}
           />
         </div>
       </form>
