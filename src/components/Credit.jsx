@@ -24,6 +24,7 @@ const Credit = (() => {
       />
       <form>
         <div>
+          <div>カード番号</div>
           <input
             type="tel"
             name="number"
@@ -34,6 +35,7 @@ const Credit = (() => {
           />
         </div>
         <div>
+          <div>所有者</div>
           <input
             type="text"
             name="name"
@@ -44,6 +46,7 @@ const Credit = (() => {
           />
         </div>
         <div>
+          <div>使用期限</div>
           <input
             type="text"
             name="expiry"
@@ -54,6 +57,7 @@ const Credit = (() => {
           />
         </div>
         <div>
+          <div>セキュリティコード</div>
           <input
             type="tel"
             name="cvc"
