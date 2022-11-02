@@ -1,9 +1,12 @@
 import './App.css';
 
+// components
+import Credit from "./components/Credit"
+
 function App() {
   return (
     <>
-      <div>おはよ。</div>
+      <Credit />
     </>
   );
 }
