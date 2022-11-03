@@ -5,7 +5,7 @@ import renderField from './renderField';
 
 const required = value => value ? undefined : '必須項目です。'
 const maxLength = max => value =>
-  value && value.length > max ? `Must be ${max} characters or less` : undefined
+  value && value.length > max ? `${max}文字以内でなければなりません。` : undefined
 const maxLength15 = maxLength(15)
 const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined
 const minValue = min => value =>
@@ -42,4 +42,5 @@ const MyForm = props => {
 
 export default reduxForm({
   form: 'myForm',
+  initialValues: { name: 'デフォルト表示' }
 })(MyForm);
