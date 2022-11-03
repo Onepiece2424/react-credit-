@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const AsyncAlert = (() => {
 
@@ -10,6 +10,16 @@ const AsyncAlert = (() => {
     resultBox.textContent = json.text;
   }
   showJsonText();
+
+  // AWSのとあるJSONデータ
+  useEffect (() => {
+    (async() => {
+      const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=AWS");
+      const data = await res.json()
+      console.log(data.items)
+    })()
+  },[])
+  // const test_place = fetch("https://jsonplaceholder.typicode.com/users")
 
   return (
     <>
