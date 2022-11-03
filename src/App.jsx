@@ -6,12 +6,12 @@ import Forming from './components/Forming';
 
 function App() {
   return (
-    <>
+    <div className="App">
       <Credit />
       <br></br>
       <br></br>
       <Forming />
-    </>
+    </div>
   );
 }
 

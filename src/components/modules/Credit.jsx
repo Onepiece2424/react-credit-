@@ -14,7 +14,6 @@ const Credit = (() => {
 
   return (
     <>
-      <p>クレカ登録</p>
       <Cards
         number={number}
         name={name}
@@ -22,6 +21,7 @@ const Credit = (() => {
         cvc={cvc}
         focused={focus}
       />
+      <p>クレカ登録</p>
       <form>
         <div>
           <div>カード番号</div>

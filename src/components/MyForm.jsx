@@ -24,22 +24,20 @@ const MyForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
   return (
     <form onSubmit={handleSubmit}>
-      <Field name="username" type="text"
-        component={renderField} label="Username"
-        validate={[ required, maxLength15 ]}
-      />
+      <div>
+        <label>ユーザー名</label>
+        <Field name="username" type="text" component={renderField} validate={[ required, maxLength15 ]} />
+      </div>
       <br></br>
-      <Field name="email" type="email"
-        component={renderField} label="Email"
-        validate={email}
-        warn={aol}
-      />
+      <div>
+        <label>Eメール</label>
+        <Field name="email" type="email" component={renderField} validate={email} warn={aol} />
+      </div>
       <br></br>
-      <Field name="age" type="number"
-        component={renderField} label="Age"
-        validate={[ required, number, minValue18 ]}
-        warn={tooOld}
-      />
+      <div>
+        <label>年齢</label>
+        <Field name="age" type="number" component={renderField} validate={[ required, number, minValue18 ]} warn={tooOld} />
+      </div>
       <br></br>
       <br></br>
       <div>
