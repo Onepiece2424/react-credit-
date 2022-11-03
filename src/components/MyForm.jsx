@@ -1,16 +1,15 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-// import { Form,FormGroup,Col,FormLabel,Button,ButtonToolbar } from 'react-bootstrap';
 
 import renderField from './renderField';
 
-const required = value => value ? undefined : 'Required'
+const required = value => value ? undefined : '必須項目です。'
 const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined
 const maxLength15 = maxLength(15)
 const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined
 const minValue = min => value =>
-  value && value < min ? `Must be at least ${min}` : undefined
+  value && value < min ? `${min}歳以上でなければなりません。` : undefined
 const minValue18 = minValue(18)
 const email = value =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
@@ -29,16 +28,20 @@ const MyForm = props => {
         component={renderField} label="Username"
         validate={[ required, maxLength15 ]}
       />
+      <br></br>
       <Field name="email" type="email"
         component={renderField} label="Email"
         validate={email}
         warn={aol}
       />
+      <br></br>
       <Field name="age" type="number"
         component={renderField} label="Age"
         validate={[ required, number, minValue18 ]}
         warn={tooOld}
       />
+      <br></br>
+      <br></br>
       <div>
         <button type="submit" disabled={submitting}>Submit</button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
