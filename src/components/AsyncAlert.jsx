@@ -11,15 +11,18 @@ const AsyncAlert = (() => {
   }
   showJsonText();
 
-  // AWSのとあるJSONデータ
+  // AWSのとあるJSONデータを取得
   useEffect (() => {
     (async() => {
       const res = await fetch("https://www.googleapis.com/books/v1/volumes?q=AWS");
-      const data = await res.json()
-      console.log(data.items)
+      const test_place = await fetch("https://jsonplaceholder.typicode.com/users")
+      const res_data = await res.json()
+      const test_place_data = await test_place.json()
+
+      console.log(res_data.totalItems)
+      console.log(test_place_data)
     })()
   },[])
-  // const test_place = fetch("https://jsonplaceholder.typicode.com/users")
 
   return (
     <>
