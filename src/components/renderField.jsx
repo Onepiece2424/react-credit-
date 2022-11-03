@@ -7,12 +7,15 @@ const renderField = ({input,label,type,placeholder,meta: {touched, error, warnin
 
   return (
     <FormGroup controlId={input.name} validationState={touched ? validationState : null}>
-      <Col componentClass={FormLabel} sm={2}>{label}</Col>
-      <Col sm={5}>
+      <Col componentClass={FormLabel} xs={6}>{label}</Col>
+      <Col xs={6}>
         <input {...input} id={input.name} placeholder={placeholder} type={type} className={'form-control'}/>
         {
           touched && error &&
-          <div>{error}</div>
+          <div className="alert-message">
+            <br></br>
+            {error}
+          </div>
         }
       </Col>
     </FormGroup>
