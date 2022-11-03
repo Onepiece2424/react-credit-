@@ -21,25 +21,14 @@ const aol = value =>
   'Really? You still use AOL for your email?' : undefined
 
 const MyForm = props => {
+
   const { handleSubmit, pristine, reset, submitting } = props;
+
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>ユーザー名</label>
-        <Field name="username" type="text" component={renderField} validate={[ required, maxLength15 ]} />
-      </div>
-      <br></br>
-      <div>
-        <label>Eメール</label>
-        <Field name="email" type="email" component={renderField} validate={email} warn={aol} />
-      </div>
-      <br></br>
-      <div>
-        <label>年齢</label>
-        <Field name="age" type="number" component={renderField} validate={[ required, number, minValue18 ]} warn={tooOld} />
-      </div>
-      <br></br>
-      <br></br>
+      <Field name="username" type="text" label="ユーザー名" component={renderField} validate={[ required, maxLength15 ]} />
+      <Field name="email" type="email" label="Eメール" component={renderField} validate={email} warn={aol} />
+      <Field name="age" type="number" label="年齢" component={renderField} validate={[ required, number, minValue18 ]} warn={tooOld} />
       <div>
         <button type="submit" disabled={submitting}>送信</button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
