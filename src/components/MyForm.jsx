@@ -43,8 +43,8 @@ const MyForm = props => {
       <br></br>
       <br></br>
       <div>
-        <button type="submit" disabled={submitting}>Submit</button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+        <button type="submit" disabled={submitting}>送信</button>
+        <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
       </div>
     </form>
   );
