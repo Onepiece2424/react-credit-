@@ -3,8 +3,8 @@ import React from 'react';
 const AsyncAlert = (() => {
 
   function syncAlert() {
-    alert('アラート表示')
-    console.log("コンソール表示")
+    setTimeout(() => {alert("まだだ。。。")},0)
+    console.log("今だ！いけー")
   }
   syncAlert();
 
