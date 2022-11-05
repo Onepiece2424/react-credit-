@@ -6,7 +6,7 @@ const SampleForm = ((props) => {
   const { handleSubmit } = props;
 
   console.log(props)
-  console.log({handleSubmit})
+  console.log(handleSubmit)
 
   return (
     <>
