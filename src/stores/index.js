@@ -2,8 +2,8 @@ import { createStore, combineReducers } from "redux";
 // import { reducer as reduxFormReducer } from 'redux-form';
 
 // initialStateの作成
-// const initialState = {
-//   count: 100,
+const initialState = {
+  count: 100,
 //   user: {
 //     name: "田中",
 //     job: "学生",
@@ -20,7 +20,7 @@ import { createStore, combineReducers } from "redux";
 //     { id: 2, fruit_name: "みかん", fruit_color: "orange", quantity: 1 },
 //     { id: 3, fruit_name: "パイナップル", fruit_color: "yellow", quantity: 5 },
 //   ]
-// };
+};
 
 
 // reducerの作成
@@ -28,12 +28,19 @@ import { createStore, combineReducers } from "redux";
 //   form: reduxFormReducer,
 // });
 
-const countReducer = (
-  state = {
-    count: 100
+const countReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'INCREASE_COUNT':
+      return {
+        count: state.count + 1,
+      };
+    case 'DECREASE_COUNT':
+      return {
+        count: state.count - 1,
+      };
+      default:
+        return state;
   }
-) => {
-  return state
 };
 
 const userReducer = (
