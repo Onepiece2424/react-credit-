@@ -12,9 +12,9 @@ import { connect } from "react-redux";
 
 function App({count}) {
 
-  console.log(store)
-  console.log(store.getState())
-  console.log(store.getState().count)
+  // console.log(store)
+  // console.log(store.getState())
+  // console.log(store.getState().count)
 
   return (
     <div className="App">
