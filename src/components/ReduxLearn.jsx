@@ -1,7 +1,9 @@
 import React from 'react'
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 
-const ReduxLearn = (({ count }) => {
+const ReduxLearn = (() => {
+
+  const count = useSelector((state) => state.count)
 
   return (
     <>
@@ -11,8 +13,4 @@ const ReduxLearn = (({ count }) => {
   )
 })
 
-const mapStateToProps = (state) => {
-  return { count: state.count };
-};
-
-export default connect(mapStateToProps)(ReduxLearn);
+export default ReduxLearn;
