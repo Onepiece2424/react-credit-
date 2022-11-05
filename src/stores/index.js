@@ -8,11 +8,7 @@ const initialState = {
     name: "田中",
     job: "学生",
     age: 21,
-    family: {
-      father: "ひろし",
-      mother: "かずえ",
-      sister: "きょうこ"
-    }
+    family: ["ひろし", "かずえ", "きょうこ"]
   },
   animal: {
     name: "ライオン",

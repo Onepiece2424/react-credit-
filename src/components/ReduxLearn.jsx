@@ -8,7 +8,7 @@ const ReduxLearn = (() => {
   return (
     <>
       <div>こんにちは。</div>
-      <div>Storeから持ってきたデータ 「{users.family.mother}」</div>
+      <div>Storeから持ってきたデータ 「{users.family}」</div>
     </>
   )
 })
