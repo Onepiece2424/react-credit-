@@ -8,8 +8,14 @@ import ReCAPTCHA from "./components/ReCAPTCHA"
 
 import ReduxLearn from './components/ReduxLearn'
 import store from "./stores/index";
+import { connect } from "react-redux";
 
-function App() {
+function App({count}) {
+
+  console.log(store)
+  console.log(store.getState())
+  console.log(store.getState().count)
+
   return (
     <div className="App">
       <Credit />
@@ -19,15 +25,13 @@ function App() {
           <ReCAPTCHA />
         </div>
         <ReduxLearn />
-        <p>Count:{store.getState().count}</p>
-      {/* <br></br>
-      <br></br>
-        <Forming />
-      <br></br>
-      <br></br>
-        <AsyncAlert /> */}
+        <p>Count:{count}</p>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { count: state.count };
+};
+
+export default connect(mapStateToProps)(App);
