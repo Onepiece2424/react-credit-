@@ -9,6 +9,10 @@ import ReCAPTCHA from "./components/ReCAPTCHA"
 import ReduxLearn from './components/ReduxLearn'
 import SampleForm from './components/SampleForm'
 
+import ValidationForm from './components/ValidationForm';
+import {Container,Row,Col} from 'react-bootstrap';
+import showResults from "./showResults";
+
 function App() {
 
   return (
@@ -22,7 +26,22 @@ function App() {
       <ReduxLearn />
       <br></br>
       <br></br>
-      <SampleForm onSubmit={value => console.log(value)} />
+      <SampleForm onSubmit={showResults} />
+      <br></br>
+      <br></br>
+      <div>
+        <header className="App App-header">
+          <h1 className="App-title">Welcome to React</h1>
+        </header>
+        <Container style={{padding: 15}}>
+          <Row>
+            <Col sm={10}>
+              <h3>フォーム画面</h3>
+              <ValidationForm onSubmit={showResults}/>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     </div>
   );
 }
