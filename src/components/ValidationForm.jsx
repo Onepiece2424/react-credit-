@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 // validation
-const required = value => value ? undefined : 'Required'
+const required = value => value ? undefined : '必須項目です。'
 const maxLength = max => value =>
   value && value.length > max ? `${max}文字以内でなければなりません。` : undefined
 const maxLength15 = maxLength(15)
@@ -22,7 +22,7 @@ const aol = value =>
 const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
   <div>
     <label>{label}</label>
-    <div>
+    <div className='alert-message'>
       <input {...input} placeholder={label} type={type}/>
       {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
     </div>
