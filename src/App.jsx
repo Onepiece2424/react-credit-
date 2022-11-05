@@ -21,11 +21,11 @@ function App({count}) {
       <Credit />
       <br></br>
       <br></br>
-        <div className='recapture_icon'>
-          <ReCAPTCHA />
-        </div>
-        <ReduxLearn />
-        <p>Count:{count}</p>
+      <p>Count:{count}</p>
+      <div className='recapture_icon'>
+        <ReCAPTCHA />
+      </div>
+      <ReduxLearn />
     </div>
   );
 }

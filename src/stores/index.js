@@ -4,7 +4,7 @@ import { createStore } from "redux";
 // initialStateの作成
 const initialState = {
   count: 100,
-  users: {
+  user: {
     name: "田中",
     job: "学生",
     age: 21,
@@ -14,7 +14,12 @@ const initialState = {
     name: "ライオン",
     size: "2m",
     color: "yellow"
-  }
+  },
+  fruits: [
+    { id: 1, fruit_name: "りんご", fruit_color: "red", quantity: 3 },
+    { id: 2, fruit_name: "みかん", fruit_color: "orange", quantity: 1 },
+    { id: 3, fruit_name: "パイナップル", fruit_color: "yellow", quantity: 5 },
+  ]
 };
 
 
