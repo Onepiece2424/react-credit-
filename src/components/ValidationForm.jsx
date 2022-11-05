@@ -34,22 +34,22 @@ const ValidationForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <Field name="username" type="text"
-        component={renderField} label="Username"
+        component={renderField} label="ユーザー名"
         validate={[ required, maxLength15 ]}
       />
       <Field name="email" type="email"
-        component={renderField} label="Email"
+        component={renderField} label="Eメール"
         validate={email}
         warn={aol}
       />
       <Field name="age" type="number"
-        component={renderField} label="Age"
+        component={renderField} label="年齢"
         validate={[ required, number, minValue18 ]}
         warn={tooOld}
       />
       <div>
-        <button type="submit" disabled={submitting}>Submit</button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>Clear Values</button>
+        <button type="submit" disabled={submitting}>登録</button>
+        <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
       </div>
     </form>
   )
