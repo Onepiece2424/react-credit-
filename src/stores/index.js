@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from "redux";
-// import { reducer as reduxFormReducer } from 'redux-form';
+import { reducer as reduxFormReducer } from 'redux-form';
 
 // initialStateの作成
 const initialState = {
@@ -85,7 +85,8 @@ const reducer = combineReducers({
   countReducer,
   userReducer,
   animalReducer,
-  fruitReducer
+  fruitReducer,
+  form: reduxFormReducer,
 })
 
 const store = createStore(
@@ -94,6 +95,6 @@ const store = createStore(
 );
 
 
-console.log(store.getState());
+// console.log(store.getState());
 
 export default store;

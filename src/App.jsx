@@ -7,6 +7,7 @@ import Credit from "./components/modules/Credit"
 import ReCAPTCHA from "./components/ReCAPTCHA"
 
 import ReduxLearn from './components/ReduxLearn'
+import SampleForm from './components/SampleForm'
 
 function App() {
 
@@ -19,6 +20,9 @@ function App() {
         <ReCAPTCHA />
       </div>
       <ReduxLearn />
+      <br></br>
+      <br></br>
+      <SampleForm onSubmit={value => console.log(value)} />
     </div>
   );
 }
