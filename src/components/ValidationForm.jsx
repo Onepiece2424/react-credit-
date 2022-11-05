@@ -23,7 +23,7 @@ const ValidationForm = props => {
             name="name"
             component="input"
             type="text"
-            placeholder="Name"
+            placeholder="名前を入力してください。"
             className={'form-control'}
           />
         </Col>
