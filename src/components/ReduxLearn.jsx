@@ -3,8 +3,9 @@ import { useSelector } from "react-redux";
 
 const ReduxLearn = (() => {
 
-  const user = useSelector((state) => state.user)
-  const fruits = useSelector((state) => state.fruits)
+  // console.log(state.)
+  const user = useSelector((state) => state.userReducer.user)
+  const fruits = useSelector((state) => state.fruitReducer.fruits)
 
   return (
     <>
