@@ -4,17 +4,17 @@ import { Field, reduxForm } from 'redux-form';
 // validation
 const required = value => value ? undefined : 'Required'
 const maxLength = max => value =>
-  value && value.length > max ? `Must be ${max} characters or less` : undefined
+  value && value.length > max ? `${max}文字以内でなければなりません。` : undefined
 const maxLength15 = maxLength(15)
-const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined
+const number = value => value && isNaN(Number(value)) ? '数字でなければなりません。' : undefined
 const minValue = min => value =>
-  value && value < min ? `Must be at least ${min}` : undefined
+  value && value < min ? `${min}歳以上でなければなりません。` : undefined
 const minValue18 = minValue(18)
 const email = value =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ?
-  'Invalid email address' : undefined
+  'このアドレスは使用できません。' : undefined
 const tooOld = value =>
-  value && value > 65 ? 'You might be too old for this' : undefined
+  value && value > 65 ? '65歳以下でなければなりません。' : undefined
 const aol = value =>
   value && /.+@aol\.com/.test(value) ?
   'Really? You still use AOL for your email?' : undefined
@@ -29,7 +29,7 @@ const renderField = ({ input, label, type, meta: { touched, error, warning } }) 
   </div>
 )
 
-const FieldLevelValidationForm = (props) => {
+const ValidationForm = (props) => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
     <form onSubmit={handleSubmit}>
@@ -57,4 +57,4 @@ const FieldLevelValidationForm = (props) => {
 
 export default reduxForm({
   form: 'fieldLevelValidation' // a unique identifier for this form
-})(FieldLevelValidationForm)
+})(ValidationForm)
