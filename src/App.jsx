@@ -7,7 +7,7 @@ import Credit from "./components/modules/Credit"
 import ReCAPTCHA from "./components/ReCAPTCHA"
 
 import ReduxLearn from './components/ReduxLearn'
-import store from "./stores/index";
+// import store from "./stores/index";
 import { connect } from "react-redux";
 
 function App({count}) {
