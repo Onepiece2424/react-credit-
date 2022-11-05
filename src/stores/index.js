@@ -4,6 +4,16 @@ import { createStore } from "redux";
 // initialStateの作成
 const initialState = {
   count: 1,
+  users: {
+    name: "田中",
+    job: "学生",
+    age: 21
+  },
+  animal: {
+    name: "ライオン",
+    size: "2m",
+    color: "yellow"
+  }
 };
 
 
