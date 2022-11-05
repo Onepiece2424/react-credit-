@@ -14,8 +14,8 @@ const ReduxLearn = (() => {
       <br></br>
       <div>果物の配列をmapで回す。</div>
       <div>
-        {fruits.map((fruit, i) => {
-          return <p key={i}>{i + 1}番目の果物は、{fruit.fruit_name}です。数量は、{fruit.quantity}個です。</p>
+        {fruits.map((fruit) => {
+          return <p key={fruit.id}>{fruit.id}番目の果物は、{fruit.fruit_name}です。数量は、{fruit.quantity}個です。</p>
         })}
       </div>
     </>
