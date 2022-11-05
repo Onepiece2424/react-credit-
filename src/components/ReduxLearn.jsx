@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 
 const ReduxLearn = (() => {
 
-  const count = useSelector((state) => state.count)
+  const users = useSelector((state) => state.users)
 
   return (
     <>
       <div>こんにちは。</div>
-      <div>Appコンポーネントから持ってきた{count}</div>
+      <div>Storeから持ってきたデータ 「{users.family.mother}」</div>
     </>
   )
 })

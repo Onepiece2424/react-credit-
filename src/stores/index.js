@@ -7,7 +7,12 @@ const initialState = {
   users: {
     name: "田中",
     job: "学生",
-    age: 21
+    age: 21,
+    family: {
+      father: "ひろし",
+      mother: "かずえ",
+      sister: "きょうこ"
+    }
   },
   animal: {
     name: "ライオン",
