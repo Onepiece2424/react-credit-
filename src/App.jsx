@@ -1,7 +1,7 @@
 import './App.css';
 
 // components
-import Credit from "./components/modules/Credit"
+import Credit from "./components/Credit"
 // import Forming from './components/Forming';
 // import AsyncAlert from './components/AsyncAlert';
 import ReCAPTCHA from "./components/ReCAPTCHA"
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <Credit />
+      <Credit onSubmit={showResults} />
       <br></br>
       <br></br>
       <div className='recapture_icon'>
