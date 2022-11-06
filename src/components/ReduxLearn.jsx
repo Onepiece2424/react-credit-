@@ -15,8 +15,22 @@ const ReduxLearn = (() => {
 
   return (
     <>
-      <div>こんにちは。</div>
-      <div>Storeから持ってきたデータ 「{user.family}」</div>
+      <div>Storeのuser情報の表示</div>
+      <div>名前:{user.name}</div>
+      <div>職業:{user.job}</div>
+      <div>年齢:{user.age}</div>
+      <div>家族構成:
+        {user.familys.map((family) => {
+          return (
+            <>
+              <p key={family.id}>{user.name}の{family.attribute}は、{family.name}です。</p>
+              <p>好きな食べ物は、{family.favorite_food}で、好きな数字は、{family.favorite_number}です。</p>
+            </>
+          )
+        })}
+      </div>
+      <div>あいさつ:{user.greeting()}</div>
+      <div></div>
       <br></br>
       <br></br>
       <div>果物の配列をmapで回す。</div>

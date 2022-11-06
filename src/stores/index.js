@@ -46,10 +46,17 @@ const countReducer = (state = initialState, action) => {
 const userReducer = (
   state = {
     user: {
-      name: "田中",
+      name: "さとる",
       job: "学生",
       age: 21,
-      family: ["ひろし", "かずえ", "きょうこ"]
+      familys: [
+        { id: 1, attribute: "父", name: "のぼる", favorite_food: "ラーメン", favorite_number: 7 },
+        { id: 2, attribute: "母", name: "かずえ", favorite_food: "カレー", favorite_number: 11 },
+        { id: 3, attribute: "妹", name: "かりん", favorite_food: "すし", favorite_number: 9 },
+      ],
+      greeting: function() {
+        console.log("おはよ")
+      }
     }
   }
 ) => {
