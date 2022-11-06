@@ -36,7 +36,7 @@ const Credit = ((props) => {
   const [focus, setFocus] = useState("");
 
   const { handleSubmit, pristine, reset, submitting } = props
-console.log(props)
+
   return (
     <>
       <Cards
