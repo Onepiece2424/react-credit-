@@ -19,8 +19,8 @@ const AsyncAlert = (() => {
       const res_data = await res.json()
       const test_place_data = await test_place.json()
 
-      console.log(res_data.totalItems)
-      console.log(test_place_data)
+      // console.log(res_data.totalItems)
+      // console.log(test_place_data)
     })()
   },[])
 

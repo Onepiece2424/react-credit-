@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-
+import renderField from './renderField';
 // validation
 const required = value => value ? undefined : '必須項目です。'
 const maxLength = max => value =>
@@ -19,18 +19,10 @@ const aol = value =>
   value && /.+@aol\.com/.test(value) ?
   'Really? You still use AOL for your email?' : undefined
 
-const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
-  <div>
-    <label>{label}</label>
-    <div className='alert-message'>
-      <input {...input} placeholder={label} type={type}/>
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  </div>
-)
-
 const ValidationForm = (props) => {
+
   const { handleSubmit, pristine, reset, submitting } = props
+
   return (
     <form onSubmit={handleSubmit}>
       <Field name="username" type="text"

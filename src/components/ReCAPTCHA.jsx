@@ -3,7 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 const recapture = (() => {
 
   function greeting() {
-    console.log("旅に出るぞ!!")
+    // console.log("旅に出るぞ!!")
   }
 
   return (
