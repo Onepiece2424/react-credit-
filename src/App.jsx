@@ -12,6 +12,7 @@ import SampleForm from './components/SampleForm'
 import ValidationForm from './components/ValidationForm';
 import {Container,Row,Col} from 'react-bootstrap';
 import showResults from "./showResults";
+import HookForm from './components/HookForm';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <div className='recapture_icon'>
         <ReCAPTCHA />
       </div>
+      <HookForm />
       <br></br>
       <br></br>
       <ReduxLearn />
