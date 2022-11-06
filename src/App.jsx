@@ -1,32 +1,31 @@
 import './App.css';
 
 // components
-// import Credit from "./components/Credit"
-// import Forming from './components/Forming';
-// import AsyncAlert from './components/AsyncAlert';
-// import ReCAPTCHA from "./components/ReCAPTCHA"
+import Credit from "./components/Credit"
+import Forming from './components/Forming';
+import AsyncAlert from './components/AsyncAlert';
+import ReCAPTCHA from "./components/ReCAPTCHA"
 
 import ReduxLearn from './components/ReduxLearn'
-// import SampleForm from './components/SampleForm'
+import SampleForm from './components/SampleForm'
 
-// import ValidationForm from './components/ValidationForm';
-// import {Container,Row,Col} from 'react-bootstrap';
-// import showResults from "./showResults";
+import ValidationForm from './components/ValidationForm';
+import {Container,Row,Col} from 'react-bootstrap';
+import showResults from "./showResults";
 
 function App() {
 
   return (
     <div className="App">
-      <ReduxLearn />
-      <br></br>
-      {/* <Credit onSubmit={showResults} />
+      <Credit onSubmit={showResults} />
       <br></br>
       <br></br>
       <div className='recapture_icon'>
         <ReCAPTCHA />
       </div>
-
       <br></br>
+      <br></br>
+      <ReduxLearn />
       <br></br>
       <SampleForm onSubmit={showResults} />
       <br></br>
@@ -43,7 +42,9 @@ function App() {
             </Col>
           </Row>
         </Container>
-      </div> */}
+      </div>
+      <AsyncAlert />
+      <Forming />
     </div>
   );
 }
