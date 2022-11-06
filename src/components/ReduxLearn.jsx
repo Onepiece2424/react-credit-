@@ -52,7 +52,6 @@ const ReduxLearn = (() => {
         })}
       </div>
       <div>あいさつ:{user.greeting()}</div>
-      <div></div>
       <br></br>
       <br></br>
       <div>果物の配列をmapで回す。</div>
