@@ -17,11 +17,18 @@ const initialState = {
       console.log("おはよ")
     }
   },
-  animal: {
-    name: "ライオン",
-    size: "2m",
-    color: "yellow"
-  },
+  animal: [
+    {
+      name: "ライオン",
+      size: 2,
+      color: "yellow"
+    },
+    {
+      name: "チーター",
+      size: 1.5,
+      color: "yellow"
+    }
+  ],
   fruits: [
     { id: 1, fruit_name: "りんご", fruit_color: "red", quantity: 3 },
     { id: 2, fruit_name: "みかん", fruit_color: "orange", quantity: 1 },
@@ -54,8 +61,15 @@ const userReducer = (state = initialState) => {
   return state
 };
 
-const animalReducer = (state = initialState) => {
-  return state
+const animalReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "ADD_ANIMAL":
+      return {
+        animal: [...state.animal, action.payload],
+      };
+    default:
+      return state
+  }
 };
 
 const fruitReducer = (state = initialState) => {
