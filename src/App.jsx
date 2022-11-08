@@ -4,7 +4,6 @@ import './App.css';
 import Credit from "./components/Credit"
 import Forming from './components/Forming';
 import AsyncAlert from './components/AsyncAlert';
-import ReCAPTCHA from "./components/ReCAPTCHA"
 
 import ReduxLearn from './components/ReduxLearn'
 import SampleForm from './components/SampleForm'
@@ -21,9 +20,6 @@ function App() {
       <Credit onSubmit={showResults} />
       <br></br>
       <br></br>
-      <div className='recapture_icon'>
-        <ReCAPTCHA />
-      </div>
       <HookForm />
       <br></br>
       <br></br>
