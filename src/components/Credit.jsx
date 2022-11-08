@@ -8,6 +8,9 @@ import "react-credit-cards/es/styles-compiled.css";
 import { Field, reduxForm } from 'redux-form';
 import renderField from "./renderField";
 
+// recapture
+import recapture from "./ReCAPTCHA";
+
 // validation
 const required = value => value ? undefined : '必須項目です。'
 // const maxLength = max => value =>
@@ -99,6 +102,10 @@ const Credit = ((props) => {
             onChange={(e) => setCvc(e.target.value)}
             onFocus={(e) => setFocus(e.target.name)}
           />
+        </div>
+        <div>
+          <div>リキャプチャ</div>
+          <Field name='captcharesponse' component={recapture}/>
         </div>
         <div>
           <button type="submit" disabled={submitting}>登録</button>
