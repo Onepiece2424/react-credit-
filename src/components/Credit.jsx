@@ -105,7 +105,7 @@ const Credit = ((props) => {
         </div>
         <div>
           <div>リキャプチャ</div>
-          <Field name='captcharesponse' component={recapture}/>
+          <Field name='captcharesponse' component={recapture} validate={[ required ]} />
         </div>
         <div>
           <button type="submit" disabled={submitting}>登録</button>
