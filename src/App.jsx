@@ -1,5 +1,4 @@
 import './App.css';
-import ReactCredit from './components/ReactCredit';
 
 // components
 // import Credit from "./components/Credit"
@@ -11,14 +10,14 @@ import ReactCredit from './components/ReactCredit';
 
 // import ValidationForm from './components/ValidationForm';
 // import {Container,Row,Col} from 'react-bootstrap';
-import showResults from "./showResults";
 // import HookForm from './components/HookForm';
+import ReactCredit from './components/ReactCredit';
 
 function App() {
 
   return (
     <div className="App">
-      <ReactCredit onSubmit={showResults} />
+      <ReactCredit />
     </div>
   );
 }

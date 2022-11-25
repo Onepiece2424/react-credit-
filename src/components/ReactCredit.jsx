@@ -1,74 +1,16 @@
-import { useState } from "react";
-import Cards from "react-credit-cards";
-import "react-credit-cards/es/styles-compiled.css";
-import renderField from "./renderField";
-import { Field, reduxForm } from 'redux-form';
+import React from 'react'
 
-const ReactCredit = ((props) => {
-  const [number, setNumber] = useState("");
-  const [name, setName] = useState("");
-  const [expiry, setExpiry] = useState("");
-  const [cvc, setCvc] = useState("");
-  const [focus, setFocus] = useState("");
+import CardoInfo from './CardoInfo'
 
-  const { handleSubmit, pristine, reset, submitting, disabled } = props
+// function
+import showResults from "./func/showResults";
 
+const ReactCredit = () => {
   return (
-    <div className="App">
-      <Cards
-        number={number}
-        name={name}
-        expiry={expiry}
-        cvc={cvc}
-        focused={focus}
-        component={renderField}
-      />
-      <form onSubmit={handleSubmit}>
-        <div>
-          <div>カード番号</div>
-          <Field
-            type="tel" name="number" placeholder="Card Number" value={number}
-            onChange={(e) => setNumber(e.target.value)}
-            onFocus={(e) => setFocus(e.target.name)}
-            component={renderField}
-          />
-        </div>
-        <div>
-        <div>所有者</div>
-          <Field
-            type="text" name="name" placeholder="Name" value={name}
-            onChange={(e) => setName(e.target.value)}
-            onFocus={(e) => setFocus(e.target.name)}
-            component={renderField}
-          />
-        </div>
-        <div>
-          <div>使用期限</div>
-          <Field
-            type="text" name="expiry" placeholder="MM/YY" value={expiry}
-            onChange={(e) => setExpiry(e.target.value)}
-            onFocus={(e) => setFocus(e.target.name)}
-            component={renderField}
-          />
-        </div>
-        <div>
-          <div>セキュリティコード</div>
-          <Field
-            type="tel" name="cvc" placeholder="CVC" value={cvc}
-            onChange={(e) => setCvc(e.target.value)}
-            onFocus={(e) => setFocus(e.target.name)}
-            component={renderField}
-          />
-        </div>
-        <div>
-          <button type="submit" disabled={disabled}>登録</button>
-          <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
-        </div>
-      </form>
-    </div>
-  );
-})
+    <>
+      <CardoInfo onSubmit={showResults} />
+    </>
+  )
+}
 
-export default reduxForm({
-  form: 'CreditValidation'
-})(ReactCredit)
+export default ReactCredit;
