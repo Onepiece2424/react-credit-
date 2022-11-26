@@ -3,13 +3,18 @@ import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import renderField from "./renderField";
 import { Field, reduxForm } from 'redux-form';
-// import recapture from "./ReCAPTCHA";
-
+import recapture from "./ReCAPTCHA";
 import ReCAPTCHA from "react-google-recaptcha";
+
+// function
+import showResults from "./func/showResults";
 
 const required = value => value ? undefined : '必須項目です。'
 
 const CardoInfo = ((props) => {
+
+  const { handleSubmit, pristine, reset, submitting, text } = props
+
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
   const [expiry, setExpiry] = useState("");
@@ -21,14 +26,13 @@ const CardoInfo = ((props) => {
   const handleChange = () => {
     if (capture.current.getValue()) {
       console.log('成功')
+      const aaa = capture.current.getValue()
+      showResults(aaa);
     } else {
       console.log('失敗')
     }
+    // return capture.current.getValue()
   }
-
-  const { handleSubmit, pristine, reset, submitting, text } = props
-  // console.log(props)
-  // console.log(text)
 
   return (
     <div className="App">
@@ -84,13 +88,14 @@ const CardoInfo = ((props) => {
         </div>
         <div>
         <div>リキャプチャ</div>
-          {/* <Field
-          ref={capture}
+          <Field
           name='captcharesponse'
           component={recapture}
           onChange={handleChange}
-          /> */}
+          validate={[ required ]}
+          />
           <ReCAPTCHA
+            name='captcharesponse'
             sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
             ref={capture}
             onChange={handleChange}
