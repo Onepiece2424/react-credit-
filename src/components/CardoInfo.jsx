@@ -91,7 +91,6 @@ const CardoInfo = ((props) => {
           <Field
           name='captcharesponse'
           component={recapture}
-          onChange={handleChange}
           validate={[ required ]}
           />
           <ReCAPTCHA
