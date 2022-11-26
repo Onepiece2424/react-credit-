@@ -1,13 +1,13 @@
-import { useState,useRef } from "react";
+import { useState } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import renderField from "./renderField";
 import { Field, reduxForm } from 'redux-form';
 import recapture from "./ReCAPTCHA";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 // function
-import showResults from "./func/showResults";
+// import showResults from "./func/showResults";
 
 // validation(importしてvalidationを適用できるかもしれない。以下の通りだとcomponentごとにvalidationを書かなければいけない。)
 const required = value => value ? undefined : '必須項目です。'
@@ -25,18 +25,18 @@ const CardoInfo = ((props) => {
   const [cvc, setCvc] = useState("");
   const [focus, setFocus] = useState("");
 
-  const capture = useRef(null);
+  // const capture = useRef(null);
 
-  const handleChange = () => {
-    if (capture.current.getValue()) {
-      console.log('成功')
-      const aaa = capture.current.getValue()
-      showResults(aaa);
-    } else {
-      console.log('失敗')
-    }
-    // return capture.current.getValue()
-  }
+  // const handleChange = () => {
+  //   if (capture.current.getValue()) {
+  //     console.log('成功')
+  //     const aaa = capture.current.getValue()
+  //     showResults(aaa);
+  //   } else {
+  //     console.log('失敗')
+  //   }
+  //   // return capture.current.getValue()
+  // }
 
   return (
     <div className="App">
@@ -97,12 +97,12 @@ const CardoInfo = ((props) => {
           component={recapture}
           validate={[ required ]}
           />
-          <ReCAPTCHA
+          {/* <ReCAPTCHA
             name='captcharesponse'
             sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
             ref={capture}
             onChange={handleChange}
-          />
+          /> */}
         </div>
         <div>
           {/* <button type="submit" disabled={!number || !name || !expiry || !cvc }>登録</button> */}
