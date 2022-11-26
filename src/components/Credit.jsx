@@ -37,13 +37,8 @@ const Credit = ((props) => {
   const [expiry, setExpiry] = useState("");
   const [cvc, setCvc] = useState("");
   const [focus, setFocus] = useState("");
-  const [verify, IsVerify] = useState(false)
 
   const { handleSubmit, pristine, reset, submitting } = props
-
-  const handleChange = () => {
-    IsVerify(true)
-  }
 
   return (
     <>
@@ -114,11 +109,10 @@ const Credit = ((props) => {
           name='captcharesponse'
           component={recapture}
           validate={[ required ]}
-          onChange={handleChange}
           />
         </div>
         <div>
-          <button type="submit" disabled={!verify}>登録</button>
+          <button type="submit">登録</button>
           <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
         </div>
       </form>
