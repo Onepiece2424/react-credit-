@@ -6,9 +6,11 @@ import CardoInfo from './CardoInfo'
 import showResults from "./func/showResults";
 
 const ReactCredit = () => {
+  const greeting = 'Welcome to the world of React.js!';
+
   return (
     <>
-      <CardoInfo onSubmit={showResults} />
+      <CardoInfo onSubmit={showResults} text={greeting} />
     </>
   )
 }

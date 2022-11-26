@@ -24,10 +24,13 @@ const CardoInfo = ((props) => {
     }
   }
 
-  const { handleSubmit, pristine, reset, submitting } = props
+  const { handleSubmit, pristine, reset, submitting, text } = props
+  // console.log(props)
+  // console.log(text)
 
   return (
     <div className="App">
+      <p>{text}</p>
       <Cards
         number={number}
         name={name}
