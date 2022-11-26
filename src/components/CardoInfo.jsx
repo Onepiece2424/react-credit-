@@ -9,7 +9,11 @@ import ReCAPTCHA from "react-google-recaptcha";
 // function
 import showResults from "./func/showResults";
 
+// validation(importしてvalidationを適用できるかもしれない。以下の通りだとcomponentごとにvalidationを書かなければいけない。)
 const required = value => value ? undefined : '必須項目です。'
+const maxLength = max => value =>
+  value && value.length > max ? `${max}文字以内でなければなりません。` : undefined
+const maxLength16 = maxLength(16)
 
 const CardoInfo = ((props) => {
 
@@ -53,7 +57,7 @@ const CardoInfo = ((props) => {
             onChange={(e) => setNumber(e.target.value)}
             onFocus={(e) => setFocus(e.target.name)}
             component={renderField}
-            validate={[ required ]}
+            validate={[ required,maxLength16 ]}
           />
         </div>
         <div>
