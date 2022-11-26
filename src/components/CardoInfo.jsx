@@ -86,12 +86,11 @@ const CardoInfo = ((props) => {
           ref={capture}
           name='captcharesponse'
           component={recapture}
-          validate={[ required ]}
           onChange={handleChange}
           />
         </div>
         <div>
-          <button type="submit">登録</button>
+          <button type="submit" disabled={!number || !name || !expiry || !cvc }>登録</button>
           <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
         </div>
       </form>
