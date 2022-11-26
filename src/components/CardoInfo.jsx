@@ -3,7 +3,9 @@ import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import renderField from "./renderField";
 import { Field, reduxForm } from 'redux-form';
-import recapture from "./ReCAPTCHA";
+// import recapture from "./ReCAPTCHA";
+
+import ReCAPTCHA from "react-google-recaptcha";
 
 const required = value => value ? undefined : '必須項目です。'
 
@@ -39,7 +41,7 @@ const CardoInfo = ((props) => {
         focused={focus}
         component={renderField}
       />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(handleSubmit)}>
         <div>
           <div>カード番号</div>
           <Field
@@ -82,15 +84,21 @@ const CardoInfo = ((props) => {
         </div>
         <div>
         <div>リキャプチャ</div>
-          <Field
+          {/* <Field
           ref={capture}
           name='captcharesponse'
           component={recapture}
           onChange={handleChange}
+          /> */}
+          <ReCAPTCHA
+            sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+            ref={capture}
+            onChange={handleChange}
           />
         </div>
         <div>
-          <button type="submit" disabled={!number || !name || !expiry || !cvc }>登録</button>
+          {/* <button type="submit" disabled={!number || !name || !expiry || !cvc }>登録</button> */}
+          <button type="submit">登録</button>
           <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
         </div>
       </form>

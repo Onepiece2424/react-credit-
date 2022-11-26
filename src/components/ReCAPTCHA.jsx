@@ -6,7 +6,9 @@ const recapture = ((field) => {
 
   return (
     <>
-       <ReCAPTCHA sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY} />
+       <ReCAPTCHA
+         sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
+       />
        <div><p className="text-danger">{ touched ? error : '' }</p></div>
     </>
   )
