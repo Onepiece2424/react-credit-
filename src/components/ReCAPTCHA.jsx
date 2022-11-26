@@ -3,6 +3,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 const recapture = ((field) => {
 
   const { meta: { touched, error } } = field;
+  console.log(field)
 
   return (
     <>
