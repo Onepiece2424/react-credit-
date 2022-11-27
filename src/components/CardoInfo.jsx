@@ -3,7 +3,7 @@ import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import renderField from "./renderField";
 import { Field, reduxForm } from 'redux-form';
-import recapture from "./ReCAPTCHA";
+import Recapture from "./ReCAPTCHA";
 // import ReCAPTCHA from "react-google-recaptcha";
 
 // function
@@ -94,7 +94,7 @@ const CardoInfo = ((props) => {
         <div>リキャプチャ</div>
           <Field
           name='captcharesponse'
-          component={recapture}
+          component={Recapture}
           validate={[ required ]}
           />
           {/* <ReCAPTCHA

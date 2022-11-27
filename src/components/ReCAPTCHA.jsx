@@ -1,6 +1,6 @@
 import ReCAPTCHA from "react-google-recaptcha";
 
-const recapture = ((field) => {
+const Recapture = ((field) => {
 
   const { meta: { touched, error } } = field;
   console.log(field)
@@ -16,4 +16,4 @@ const recapture = ((field) => {
   )
 })
 
-export default recapture;
+export default Recapture;
