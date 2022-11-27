@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import renderField from "./renderField";
 import { Field, reduxForm } from 'redux-form';
 import Recapture from "./ReCAPTCHA";
-// import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // function
 // import showResults from "./func/showResults";
@@ -25,7 +25,10 @@ const CardoInfo = ((props) => {
   const [cvc, setCvc] = useState("");
   const [focus, setFocus] = useState("");
 
-  // const capture = useRef(null);
+  // recaptureの状態のstate
+  const [recaptchaStatus, setRecaptchaStatus] = useState(false)
+
+  const capture = useRef(null);
 
   // const handleChange = () => {
   //   if (capture.current.getValue()) {
@@ -37,6 +40,13 @@ const CardoInfo = ((props) => {
   //   }
   //   // return capture.current.getValue()
   // }
+
+
+  // recaptureのstateを更新
+  const recaptchaSuccess = () => {
+    setRecaptchaStatus(true)
+  }
+
 
   return (
     <div className="App">
@@ -96,17 +106,18 @@ const CardoInfo = ((props) => {
           name='captcharesponse'
           component={Recapture}
           validate={[ required ]}
+          onChange={recaptchaSuccess}
           />
-          {/* <ReCAPTCHA
+          <ReCAPTCHA
             name='captcharesponse'
             sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
             ref={capture}
-            onChange={handleChange}
-          /> */}
+            // onChange={handleChange}
+          />
         </div>
         <div>
-          {/* <button type="submit" disabled={!number || !name || !expiry || !cvc }>登録</button> */}
-          <button type="submit">登録</button>
+          <button type="submit" disabled={!number || !name || !expiry || !cvc || !recaptchaStatus}>登録</button>
+          {/* <button type="submit" disabled={!recaptchaStatus}>登録</button> */}
           <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
         </div>
       </form>
