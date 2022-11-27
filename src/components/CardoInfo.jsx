@@ -126,7 +126,8 @@ const CardoInfo = ((props) => {
           <button type="submit" disabled={!number || !name || !expiry || !cvc || !recaptchaStatus}>登録</button>
           <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
           <br></br>
-          <button type="submit" onClick={() => capture.current.reset()}>リキャプチャ認証ボタン</button>
+          <button type="submit">送信</button>
+          <button type="submit" onClick={() => capture.current.reset()}>リセット</button>
         </div>
       </form>
     </div>
