@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import renderField from "./renderField";
 import { Field, reduxForm } from 'redux-form';
 import Recapture from "./ReCAPTCHA";
-// import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // function
 // import showResults from "./func/showResults";
@@ -28,7 +28,7 @@ const CardoInfo = ((props) => {
   // recaptureの状態のstate
   const [recaptchaStatus, setRecaptchaStatus] = useState(false)
 
-  // const capture = useRef(null);
+  const capture = useRef(null);
 
   // const handleChange = () => {
   //   if (capture.current.getValue()) {
@@ -45,6 +45,12 @@ const CardoInfo = ((props) => {
   // recaptureのstateを更新
   const recaptchaSuccess = () => {
     setRecaptchaStatus(true)
+  }
+
+  // recaptureの認証
+  const recaptchaVerify = (e) => {
+    alert(e)
+    console.log(e)
   }
 
 
@@ -108,17 +114,19 @@ const CardoInfo = ((props) => {
           validate={[ required ]}
           onChange={recaptchaSuccess}
           />
-          {/* <ReCAPTCHA
+          <ReCAPTCHA
             name='captcharesponse'
             sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
             ref={capture}
             // onChange={handleChange}
-          /> */}
+            onChange={recaptchaVerify}
+          />
         </div>
         <div>
           <button type="submit" disabled={!number || !name || !expiry || !cvc || !recaptchaStatus}>登録</button>
-          {/* <button type="submit" disabled={!recaptchaStatus}>登録</button> */}
           <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
+          <br></br>
+          <button type="submit" onClick={() => capture.current.reset()}>リキャプチャ認証ボタン</button>
         </div>
       </form>
     </div>
