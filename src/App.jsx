@@ -12,11 +12,16 @@ import './App.css';
 // import HookForm from './components/HookForm';
 // import ApiFetch from './components/ApiFetch';
 import ReactCredit from './components/ReactCredit';
+import PlayButton from './components/PlayButton';
+
+// function
+import showResults from "./components/func/showResults";
 
 function App() {
 
   return (
     <div className="App">
+      <PlayButton onSubmit={showResults} />
       <ReactCredit />
     </div>
   );
