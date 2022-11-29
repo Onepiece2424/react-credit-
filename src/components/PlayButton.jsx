@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useState,useEffect} from 'react'
 import { reduxForm, Field, FormSection, Form } from 'redux-form';
 import renderField from "./renderField";
 
@@ -6,26 +6,34 @@ const required = value => value ? undefined : '必須項目です。'
 
 const PlayButton = ((props) => {
 
+  // propsからhandleSubmitのみ取り出す
   const { handleSubmit } = props
+
+  // ボタンクリックごとに変化するstateの設定
+  const [count, setCount] = useState()
 
   useEffect(() => {
     function sampleResolve(value) {
       return new Promise(resolve => {
           setTimeout(() => {
-              resolve(value * 2);
+              resolve(value);
           }, 2000);
       })
     }
 
     async function sample() {
-      const result = await sampleResolve(5);
-      return result + 5;
+      const array =[5, 10, 15];
+      const promiseAll = await Promise.all(array.map(async (value) => {
+          return await sampleResolve(value) * 2;
+    }));
+
+      return promiseAll;
     }
 
-    sample().then(result => {
-      console.log(result);
+    sample().then(([a, b, c]) => {
+        console.log(a, b, c);
     });
-  },[])
+  },[count])
 
 
   return (
@@ -49,7 +57,7 @@ const PlayButton = ((props) => {
             <Field label='友達2' name='student_friend2' component={renderField} validate={[ required ]} />
           </FormSection>
         </FormSection>
-        <button type='submit'>送信</button>
+        <button type='submit' onClick={() => setCount(count + 1)}>送信</button>
       </Form>
     </>
   )
