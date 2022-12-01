@@ -33,6 +33,15 @@ const PlayButton = ((props) => {
     sample().then(([a, b, c]) => {
         console.log(a, b, c);
     });
+
+    // 非同期処理
+    console.log('ログ1');
+    (async() => {
+        console.log('ログ2');
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        console.log('ログ3');
+    })()
+    console.log('ログ4');
   },[count])
 
 
