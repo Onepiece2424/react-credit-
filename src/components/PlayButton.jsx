@@ -2,9 +2,6 @@ import React,{useState,useEffect} from 'react'
 import { reduxForm, Field, FormSection, Form } from 'redux-form';
 import renderField from "./renderField";
 
-// recapture3
-import MyApp from './Myapp';
-
 const required = value => value ? undefined : '必須項目です。'
 
 const PlayButton = ((props) => {
@@ -70,7 +67,6 @@ const PlayButton = ((props) => {
           </FormSection>
         </FormSection>
         <button type='submit' onClick={() => setCount(count + 1)}>送信</button>
-        <MyApp />
       </Form>
     </>
   )
