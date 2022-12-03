@@ -12,7 +12,6 @@ import './App.css';
 // import HookForm from './components/HookForm';
 // import ApiFetch from './components/ApiFetch';
 // import PlayButton from './components/PlayButton';
-import Myapp from './components/Myapp';
 import ReactCredit from './components/ReactCredit';
 
 // function
@@ -22,7 +21,6 @@ function App() {
 
   return (
     <div className="App">
-      <Myapp />
       <ReactCredit />
     </div>
   );
