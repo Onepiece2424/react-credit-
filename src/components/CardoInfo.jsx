@@ -6,9 +6,6 @@ import { Field, reduxForm } from 'redux-form';
 import Recapture from "./ReCAPTCHA";
 import ReCAPTCHA from "react-google-recaptcha";
 
-// recapture3
-import MyApp from './Myapp';
-
 // function
 // import showResults from "./func/showResults";
 
@@ -131,7 +128,6 @@ const CardoInfo = ((props) => {
           <br></br>
           <button type="submit">送信</button>
           <button type="submit" onClick={() => capture.current.reset()}>リセット</button>
-          <MyApp />
         </div>
       </form>
     </div>
