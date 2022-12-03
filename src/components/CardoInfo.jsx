@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import renderField from "./renderField";
 import { Field, reduxForm } from 'redux-form';
 import Recapture from "./ReCAPTCHA";
-// import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
+
+// recapture3
+import MyApp from './Myapp';
 
 // function
 // import showResults from "./func/showResults";
@@ -25,7 +28,10 @@ const CardoInfo = ((props) => {
   const [cvc, setCvc] = useState("");
   const [focus, setFocus] = useState("");
 
-  // const capture = useRef(null);
+  // recaptureの状態のstate
+  const [recaptchaStatus, setRecaptchaStatus] = useState(false)
+
+  const capture = useRef(null);
 
   // const handleChange = () => {
   //   if (capture.current.getValue()) {
@@ -37,6 +43,19 @@ const CardoInfo = ((props) => {
   //   }
   //   // return capture.current.getValue()
   // }
+
+
+  // recaptureのstateを更新
+  const recaptchaSuccess = () => {
+    setRecaptchaStatus(true)
+  }
+
+  // recaptureの認証
+  const recaptchaVerify = (e) => {
+    alert(e)
+    console.log(e)
+  }
+
 
   return (
     <div className="App">
@@ -96,18 +115,23 @@ const CardoInfo = ((props) => {
           name='captcharesponse'
           component={Recapture}
           validate={[ required ]}
+          onChange={recaptchaSuccess}
           />
-          {/* <ReCAPTCHA
+          <ReCAPTCHA
             name='captcharesponse'
             sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
             ref={capture}
-            onChange={handleChange}
-          /> */}
+            // onChange={handleChange}
+            onChange={recaptchaVerify}
+          />
         </div>
         <div>
-          {/* <button type="submit" disabled={!number || !name || !expiry || !cvc }>登録</button> */}
-          <button type="submit">登録</button>
+          <button type="submit" disabled={!number || !name || !expiry || !cvc || !recaptchaStatus}>登録</button>
           <button type="button" disabled={pristine || submitting} onClick={reset}>クリア</button>
+          <br></br>
+          <button type="submit">送信</button>
+          <button type="submit" onClick={() => capture.current.reset()}>リセット</button>
+          <MyApp />
         </div>
       </form>
     </div>
